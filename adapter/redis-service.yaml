@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: adapter-example
+  namespace: default
+  spec:
+    containers:
+    - name: redis
+      image: redis
+    # Provide an adapter that implements the Prometheus interface
+    - image: oliver006/redis_exporter
+      name: adapter
